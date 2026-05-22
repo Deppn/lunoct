@@ -12,7 +12,7 @@ document.querySelectorAll('a, button, .swiper-button-next-custom, .swiper-button
   el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
 });
 
-// Scroll reveal effect using Intersection Observer (ORIGINAL FORM)
+// Scroll reveal effect using Intersection Observer
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -58,11 +58,11 @@ stats.forEach(el => countObserver.observe(el));
 
 // INITIALIZE SWIPER CAROUSEL (5 SLIDES SEJAJAR MENYAMPING)
 const swiper = new Swiper('.portfolioSwiper', {
-  slidesPerView: 1.2,       // Mobile look default
-  centeredSlides: true,     // Mengunci slide utama tepat di posisi tengah
+  slidesPerView: 1.2,       
+  centeredSlides: true,     
   spaceBetween: 16,        
   grabCursor: true,        
-  loop: true,               // Infinite looping aman karena stok slide di HTML sudah banyak (8 slides)
+  loop: true,               
   initialSlide: 2,          
   observer: true,
   observeParents: true,
@@ -71,14 +71,12 @@ const swiper = new Swiper('.portfolioSwiper', {
     prevEl: '.swiper-button-prev-custom.main-nav',
   },
   breakpoints: {
-    // Ukuran Monitor Tablet
     640: {
       slidesPerView: 3,     
       spaceBetween: 20,
     },
-    // Ukuran Monitor Desktop (Lebar)
     1024: {
-      slidesPerView: 5,     // Menampilkan 5 Baris video Short sejajar rapi menyamping
+      slidesPerView: 5,     
       spaceBetween: 24,     
     }
   }
@@ -87,3 +85,21 @@ const swiper = new Swiper('.portfolioSwiper', {
 window.addEventListener('load', () => {
     swiper.update();
 });
+
+// AUTOMATIC INFINITE MARQUEE GENERATOR
+const marqueeInner = document.querySelector('.marquee');
+if (marqueeInner) {
+    const originalItems = Array.from(marqueeInner.children);
+    if (originalItems.length > 0) {
+        const minItemsNeeded = 16; 
+        while (marqueeInner.children.length < minItemsNeeded) {
+            originalItems.forEach(item => {
+                marqueeInner.appendChild(item.cloneNode(true));
+            });
+        }
+        const combinedItems = Array.from(marqueeInner.children);
+        combinedItems.forEach(item => {
+            marqueeInner.appendChild(item.cloneNode(true));
+        });
+    }
+}
