@@ -263,51 +263,51 @@ h2.section-title {
   background: var(--black);
   border-bottom: 0.5px solid var(--gray-border);
   overflow: hidden;
+  position: relative;
+  padding-bottom: 0;
 }
 .section-header-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 48px;
-}
-.swiper-navigation-buttons {
-  display: flex;
-  gap: 12px;
+  margin-bottom: 56px;
+  position: relative;
+  z-index: 5;
 }
 .swiper-button-next-custom, .swiper-button-prev-custom {
-  width: 50px; height: 50px;
+  width: 54px; height: 54px;
   border: 0.5px solid var(--gray-border);
+  background: rgba(10,10,10,0.8);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   color: var(--white);
   cursor: none;
-  font-size: 18px;
-  transition: background 0.2s, border-color 0.2s;
+  font-size: 20px;
+  transition: all 0.3s;
   user-select: none;
+  z-index: 10;
 }
 .swiper-button-next-custom:hover, .swiper-button-prev-custom:hover {
   background: var(--gray-mid);
   border-color: var(--accent);
   color: var(--accent);
+  transform: scale(1.05);
 }
-.portfolioSwiper {
-  padding-bottom: 50px !important;
-}
+.swiper-button-next-custom.main-nav { position: absolute; right: 8%; top: 50%; transform: translateY(-50%); }
+.swiper-button-prev-custom.main-nav { position: absolute; left: 8%; top: 50%; transform: translateY(-50%); }
+.swiper-navigation-buttons.only-mobile { display: none; gap: 12px; margin-top: 20px; justify-content: center; }
+.portfolioSwiper { overflow: visible !important; width: 100%; }
+.portfolioSwiper .swiper-wrapper { padding-bottom: 120px; }
 .portfolio-card {
   background: var(--gray);
   border: 0.5px solid var(--gray-border);
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.3s, border-color 0.3s;
-}
-.portfolio-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(200,245,106,0.3);
+  transform-origin: center center;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease;
+  position: relative;
 }
 .video-container {
   position: relative;
   width: 100%;
-  padding-top: 177.78%; /* Rasio Short Vertikal murni 9:16 */
+  padding-top: 177.78%;
   background: #000;
 }
 .video-container iframe {
@@ -316,29 +316,29 @@ h2.section-title {
   width: 100%; height: 100%;
   border: 0;
 }
-.video-container::after {
+.portfolio-card::after {
   content: '';
   position: absolute;
   top: 0; left: 0;
-  width: 100%; height: 85%;
-  z-index: 2;
-  background: transparent;
+  width: 100%; height: 100%;
+  z-index: 8;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: grayscale(100%);
   pointer-events: auto;
+  transition: background 0.6s, backdrop-filter 0.6s;
 }
-.portfolio-info { padding: 20px; }
-.portfolio-info h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 17px; font-weight: 700;
-  margin-bottom: 6px;
-  letter-spacing: -0.3px;
+.portfolioSwiper .swiper-slide-active .portfolio-card {
+  transform: scale(1.1);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.8), 0 0 40px rgba(200,245,106,0.1);
+  border-color: rgba(200,245,106,0.3);
 }
-.portfolio-info p { font-size: 13px; color: var(--muted-light); }
+.portfolioSwiper .swiper-slide-active .portfolio-card::after {
+  background: transparent;
+  backdrop-filter: none;
+  pointer-events: none;
+}
 
-.swiper-pagination-bullet { background: var(--muted) !important; opacity: 0.5; }
-.swiper-pagination-bullet-active { background: var(--accent) !important; opacity: 1 !important; }
-
-
-/* SERVICES / PRICING */
+/* PRICING */
 .pricing-section { background: var(--gray); border-bottom: 0.5px solid var(--gray-border); }
 .pricing-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -415,6 +415,75 @@ h2.section-title {
   border-color: var(--accent);
 }
 .pricing-card.featured .pricing-btn:hover { background: #b8e855; }
+
+/* HOW IT WORKS (ORIGINAL LOOK) */
+.how-section {
+  background: var(--gray);
+  border-bottom: 0.5px solid var(--gray-border);
+}
+.how-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 40px; margin-top: 64px;
+}
+.how-item { position: relative; }
+.how-item:not(:last-child)::after {
+  content: '→';
+  position: absolute; top: 24px; right: -24px;
+  color: var(--muted);
+  font-size: 18px;
+}
+.how-num {
+  width: 48px; height: 48px;
+  border: 0.5px solid var(--gray-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.how-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px; font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+.how-desc { font-size: 14px; color: var(--muted-light); line-height: 1.65; }
+
+/* TESTIMONIALS (ORIGINAL LOOK) */
+.testi-section { border-bottom: 0.5px solid var(--gray-border); }
+.testi-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 56px;
+}
+.testi-card {
+  background: var(--gray);
+  border: 0.5px solid var(--gray-border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.testi-card:hover { border-color: rgba(200,245,106,0.3); transform: translateY(-3px); }
+.testi-stars { color: var(--accent); font-size: 13px; margin-bottom: 16px; letter-spacing: 2px; }
+.testi-quote {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--white);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--gray-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700;
+  color: var(--accent);
+}
+.testi-name { font-size: 14px; font-weight: 500; }
+.testi-role { font-size: 12px; color: var(--muted); }
 
 /* FAQ */
 .faq-section { border-bottom: 0.5px solid var(--gray-border); }
@@ -499,9 +568,18 @@ footer {
   section { padding: 64px 20px; }
   .stats-section { grid-template-columns: 1fr; }
   .stat-item { border-right: none; border-bottom: 0.5px solid var(--gray-border); padding: 40px 20px; }
-  .services-grid, .how-grid, .testi-grid, .pricing-grid, .faq-grid, .portfolioSwiper { grid-template-columns: 1fr; }
-  .section-header-wrap { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .swiper-navigation-buttons { display: none; } /* HP tinggal swipe manual */
+  .services-grid, .how-grid, .testi-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr; }
+  .services-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  
+  /* Portfolio Mobile Look */
+  .portfolio-section { padding: 60px 0; }
+  .section-header-wrap { padding: 0 20px; margin-bottom: 20px; }
+  .portfolioSwiper .swiper-wrapper { padding-bottom: 60px; }
+  .swiper-button-next-custom.main-nav, .swiper-button-prev-custom.main-nav { display: none !important; }
+  .swiper-navigation-buttons.only-mobile { display: flex; }
+  .portfolio-card { border-radius: 12px; }
+  .portfolioSwiper .swiper-slide-active .portfolio-card { transform: scale(1.0); box-shadow: none;}
+
   .how-item::after { display: none; }
   footer { flex-direction: column; gap: 24px; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
