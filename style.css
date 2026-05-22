@@ -258,7 +258,7 @@ h2.section-title {
   max-width: 640px;
 }
 
-/* PORTFOLIO SECTION */
+/* PORTFOLIO SECTION (5 VISIBLE TILES LOOK) */
 .portfolio-section {
   background: var(--black);
   border-bottom: 0.5px solid var(--gray-border);
@@ -274,7 +274,7 @@ h2.section-title {
 .swiper-button-next-custom, .swiper-button-prev-custom {
   width: 54px; height: 54px;
   border: 0.5px solid var(--gray-border);
-  background: rgba(10,10,10,0.8);
+  background: rgba(10,10,10,0.9);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   color: var(--white);
@@ -290,15 +290,16 @@ h2.section-title {
   color: var(--accent);
   transform: scale(1.05);
 }
-.swiper-button-next-custom.main-nav { position: absolute; right: 8%; top: 50%; transform: translateY(-50%); }
-.swiper-button-prev-custom.main-nav { position: absolute; left: 8%; top: 50%; transform: translateY(-50%); }
+/* Dipindah ke paling pojok luar (2%) agar tidak menghalangi view 5 video */
+.swiper-button-next-custom.main-nav { position: absolute; right: 2%; top: 50%; transform: translateY(-50%); }
+.swiper-button-prev-custom.main-nav { position: absolute; left: 2%; top: 50%; transform: translateY(-50%); }
 .swiper-navigation-buttons.only-mobile { display: none; gap: 12px; margin-top: 20px; justify-content: center; }
-.portfolioSwiper { overflow: visible !important; width: 100%; }
+.portfolioSwiper { overflow: visible !important; width: 100%; padding: 0 40px; }
 .portfolioSwiper .swiper-wrapper { padding-bottom: 120px; }
 .portfolio-card {
   background: var(--gray);
   border: 0.5px solid var(--gray-border);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   transform-origin: center center;
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease;
@@ -316,6 +317,8 @@ h2.section-title {
   width: 100%; height: 100%;
   border: 0;
 }
+
+/* Efek menggelap transparan untuk slide samping default */
 .portfolio-card::after {
   content: '';
   position: absolute;
@@ -327,9 +330,11 @@ h2.section-title {
   pointer-events: auto;
   transition: background 0.6s, backdrop-filter 0.6s;
 }
+
+/* Modifikasi skala agar 5 video berdampingan muat rapi (tidak kegedean) */
 .portfolioSwiper .swiper-slide-active .portfolio-card {
-  transform: scale(1.1);
-  box-shadow: 0 30px 90px rgba(0,0,0,0.8), 0 0 40px rgba(200,245,106,0.1);
+  transform: scale(1.08); 
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 30px rgba(200,245,106,0.15);
   border-color: rgba(200,245,106,0.3);
 }
 .portfolioSwiper .swiper-slide-active .portfolio-card::after {
@@ -416,7 +421,7 @@ h2.section-title {
 }
 .pricing-card.featured .pricing-btn:hover { background: #b8e855; }
 
-/* HOW IT WORKS (ORIGINAL LOOK) */
+/* HOW IT WORKS */
 .how-section {
   background: var(--gray);
   border-bottom: 0.5px solid var(--gray-border);
@@ -450,7 +455,7 @@ h2.section-title {
 }
 .how-desc { font-size: 14px; color: var(--muted-light); line-height: 1.65; }
 
-/* TESTIMONIALS (ORIGINAL LOOK) */
+/* TESTIMONIALS */
 .testi-section { border-bottom: 0.5px solid var(--gray-border); }
 .testi-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -569,7 +574,6 @@ footer {
   .stats-section { grid-template-columns: 1fr; }
   .stat-item { border-right: none; border-bottom: 0.5px solid var(--gray-border); padding: 40px 20px; }
   .services-grid, .how-grid, .testi-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr; }
-  .services-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   
   /* Portfolio Mobile Look */
   .portfolio-section { padding: 60px 0; }

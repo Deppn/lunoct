@@ -12,7 +12,7 @@ document.querySelectorAll('a, button, .swiper-button-next-custom, .swiper-button
   el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
 });
 
-// Scroll reveal effect using Intersection Observer (ORIGINAL BACK)
+// Scroll reveal effect using Intersection Observer
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -56,14 +56,14 @@ const countObserver = new IntersectionObserver(entries => {
 
 stats.forEach(el => countObserver.observe(el));
 
-// INITIALIZE SWIPER CAROUSEL (For Centered Portfolio Only)
+// INITIALIZE SWIPER CAROUSEL (UPDATED FOR 5 IN A ROW DISPLAY)
 const swiper = new Swiper('.portfolioSwiper', {
-  slidesPerView: 1.2,       
-  centeredSlides: true,     
-  spaceBetween: 20,        
+  slidesPerView: 1.2,       // Default Mobile: Muncul 1 full dan sisa potongan samping
+  centeredSlides: true,     // Kunci: Slide aktif selalu berada tepat di tengah
+  spaceBetween: 16,        
   grabCursor: true,        
-  loop: true,               
-  initialSlide: 1,          
+  loop: true,               // Diaktifkan agar looping kanan-kirinya infinity tak terbatas
+  initialSlide: 2,          // Mulai langsung dari video tengah
   observer: true,
   observeParents: true,
   navigation: {
@@ -71,13 +71,15 @@ const swiper = new Swiper('.portfolioSwiper', {
     prevEl: '.swiper-button-prev-custom.main-nav',
   },
   breakpoints: {
+    // Ukuran Tablet
     640: {
-      slidesPerView: 1.8,    
-      spaceBetween: 30,
+      slidesPerView: 3,     // Tablet: Muncul 3 video menyamping
+      spaceBetween: 20,
     },
+    // Ukuran Desktop
     1024: {
-      slidesPerView: 3,      
-      spaceBetween: 40,      
+      slidesPerView: 5,     // ✦ Desktop: Muat 5 video sejajar menyamping sekaligus ✦
+      spaceBetween: 24,     // Jarak disesuaikan agar proporsi 9:16 tetap rapi & tipis
     }
   }
 });
