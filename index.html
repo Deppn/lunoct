@@ -4,29 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUNOCT — Partner Edit Video Kamu Jakarta</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-    <!-- Hubungkan ke CSS Eksternal -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
 
-    <!-- NAVIGATION -->
     <nav>
         <a href="#" class="nav-logo">LUNOCT</a>
         <div class="nav-links">
-            <a href="#layanan">Layanan</a>
+            <a href="#portofolio">Portofolio</a>
+            <a href="#harga">Paket</a>
             <a href="#cara-kerja">Cara Kerja</a>
             <a href="#testimoni">Testimoni</a>
-            <a href="#harga">Harga</a>
             <a href="#kontak" class="nav-cta">Konsultasi Gratis →</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-grid"></div>
@@ -37,7 +35,7 @@
                 <span class="hl">Video Kamu.</span>
             </h1>
             <p class="hero-sub">
-                Serahkan editing ke kami — kamu fokus bikin konten &amp; ngembangin bisnis. Dedicated editor, hasil konsisten, harga yang masuk akal.
+                Serahkan editing ke kami — kamu fokus bikin konten &amp; ngembangin bisnis.
             </p>
             <div class="hero-actions">
                 <a href="#kontak" class="btn-primary">Mulai Konsultasi Gratis →</a>
@@ -46,7 +44,6 @@
         </div>
     </section>
 
-    <!-- LOGOS MARQUEE -->
     <div class="logos-section">
         <p class="logos-label">Dipercaya oleh creator &amp; brand di Jakarta</p>
         <div class="marquee-wrap">
@@ -67,7 +64,6 @@
         </div>
     </div>
 
-    <!-- STATS -->
     <div class="stats-section">
         <div class="stat-item reveal">
             <div class="stat-num">500<span>+</span></div>
@@ -75,7 +71,7 @@
         </div>
         <div class="stat-item reveal">
             <div class="stat-num">48<span>jam</span></div>
-            <div class="stat-desc">Turnaround time rata-rata dari submit footage sampai hasil jadi</div>
+            <div class="stat-desc">Turnaround time 48 jam setelah submit footage</div>
         </div>
         <div class="stat-item reveal">
             <div class="stat-num">Revisi<span>∞</span></div>
@@ -83,13 +79,80 @@
         </div>
     </div>
 
-    <!-- SERVICES -->
-     <section class="pricing-section" id="harga">
+    <section class="portfolio-section" id="portofolio">
+        <div class="section-header-wrap">
+            <div>
+                <div class="section-tag reveal">Portofolio</div>
+                <h2 class="section-title reveal">Hasil Edit Short-Form Kami</h2>
+                <p style="margin-top:12px; font-size:15px; color:var(--muted-light);" class="reveal">Geser ke kanan untuk melihat video lainnya. Nyaman digeser langsung di HP.</p>
+            </div>
+            <div class="swiper-navigation-buttons reveal">
+                <div class="swiper-button-prev-custom">←</div>
+                <div class="swiper-button-next-custom">→</div>
+            </div>
+        </div>
+
+        <div class="swiper portfolioSwiper reveal">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="portfolio-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/zZtDMmDKunI?modestbranding=1&rel=0" title="LUNOCT Portfolio 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Project Video 1</h3>
+                            <p>Style: Fast-paced &amp; Engaging</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="portfolio-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/mgl-OBtXwJ0?modestbranding=1&rel=0" title="LUNOCT Portfolio 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Project Video 2</h3>
+                            <p>Style: Dynamic Cut &amp; Sound Design</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="portfolio-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/9RIw6GZhCB4?modestbranding=1&rel=0" title="LUNOCT Portfolio 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Project Video 3</h3>
+                            <p>Style: Clean &amp; Aesthetic</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="portfolio-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/-OZxfuDWZ3c?modestbranding=1&rel=0" title="LUNOCT Portfolio 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Project Video 4</h3>
+                            <p>Style: Color Graded Vlog</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="harga">
         <div class="section-tag reveal">Layanan</div>
         <h2 class="section-title reveal">Pilih paket yang sesuai kebutuhanmu</h2>
         <p style="margin-top:12px; font-size:15px; color:var(--muted-light);" class="reveal">Semua paket sudah termasuk dedicated editor, revisi tidak terbatas, dan garansi kepuasan.</p>
         <div class="pricing-grid">
-            <!-- Starter Package -->
             <div class="pricing-card reveal">
                 <div class="pricing-name">Starter</div>
                 <div class="pricing-desc">Untuk creator &amp; UMKM yang mau mulai konsisten tanpa overpay</div>
@@ -97,18 +160,16 @@
                 <div class="pricing-period">per bulan · cancel anytime</div>
                 <div class="pricing-divider"></div>
                 <ul class="pricing-features">
-                    <li><span class="ck">✓</span> 8 video short-form (≤60 detik)</li>
-                    <li><span class="ck">✓</span> Subtitle + backsound bebas copyright</li>
-                    <li><span class="ck">✓</span> 1x revisi per video</li>
-                    <li><span class="ck">✓</span> Delivery 3 hari kerja</li>
-                    <li><span class="ck">✓</span> Support via WhatsApp</li>
-                    <li><span class="no">✗</span> Dedicated editor</li>
+                    <li><span class="ck">✓</span> 8 Video Short-form (≤60 detik)</li>
+                    <li><span class="ck">✓</span> Revisi Unlimited</li>
+                    <li><span class="ck">✓</span> Delivery dalam 48 Jam</li>   
+                    <li><span class="ck">✓</span> Simple Edit</li>
                     <li><span class="no">✗</span> Long-form video</li>
-                    <li><span class="no">✗</span> White-label</li>
+                    <li><span class="no">✗</span> Personal Director</li>
+                    <li><span class="no">✗</span> Weekly call</li>
                 </ul>
                 <a href="#kontak" class="pricing-btn">Mulai Pakai Starter</a>
             </div>
-            <!-- Growth Package (Featured) -->
             <div class="pricing-card featured reveal">
                 <div class="pricing-name">Growth</div>
                 <div class="pricing-desc">Untuk brand yang serius bangun konten rutin di semua platform</div>
@@ -116,18 +177,17 @@
                 <div class="pricing-period">per bulan · cancel anytime</div>
                 <div class="pricing-divider"></div>
                 <ul class="pricing-features">
-                    <li><span class="ck">✓</span> 12 short-form + 4 long-form</li>
-                    <li><span class="ck">✓</span> 1 dedicated editor tetap</li>
-                    <li><span class="ck">✓</span> Revisi tidak terbatas</li>
-                    <li><span class="ck">✓</span> Delivery 2 hari kerja</li>
-                    <li><span class="ck">✓</span> Thumbnail + caption siap upload</li>
-                    <li><span class="ck">✓</span> Laporan performa bulanan</li>
-                    <li><span class="ck">✓</span> Garansi uang kembali</li>
-                    <li><span class="no">✗</span> White-label</li>
+                    <li><span class="ck">✓</span> 12 Short-form + 2 Long-form</li>
+                    <li><span class="ck">✓</span> Revisi Unlimited</li>
+                    <li><span class="ck">✓</span> Delivery dalam 48 Jam</li>
+                    <li><span class="ck">✓</span> Style Edit Apapun</li>
+                    <li><span class="ck">✓</span> Thumbnail Shortform + Longform</li>
+                    <li><span class="ck">✓</span> Personal Director</li>
+                    <li><span class="ck">✓</span> Monthly Call</li>
+                    <li><span class="no">✗</span> Priority Support</li>
                 </ul>
                 <a href="#kontak" class="pricing-btn">Mulai Pakai Growth</a>
             </div>
-            <!-- Pro Package -->
             <div class="pricing-card reveal">
                 <div class="pricing-name">Pro</div>
                 <div class="pricing-desc">Untuk agency &amp; brand besar dengan kebutuhan output konten tinggi</div>
@@ -147,7 +207,6 @@
                 <a href="#kontak" class="pricing-btn">Mulai Pakai Pro</a>
             </div>
         </div>
-        <!-- On-demand note -->
         <div style="margin-top:24px; padding:24px 28px; background:var(--black); border:0.5px solid var(--gray-border); border-radius:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;" class="reveal">
             <div>
                 <div style="font-size:15px; font-weight:600; margin-bottom:4px;">Butuh video satuan?</div>
@@ -157,7 +216,6 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
     <section class="how-section" id="cara-kerja">
         <div class="section-tag reveal">Cara Kerja</div>
         <h2 class="section-title reveal">Mulai dalam 24 jam — tanpa ribet</h2>
@@ -169,13 +227,13 @@
             </div>
             <div class="how-item reveal">
                 <div class="how-num">02</div>
-                <div class="how-title">Kenalan dengan Editor</div>
-                <div class="how-desc">Kami assign satu editor khusus buat kamu. Dia akan belajar style &amp; branding kamu dari awal.</div>
+                <div class="how-title">Penentuan Style</div>
+                <div class="how-desc">Mementukan Style editan yang diinginkan bersama creative director kami </div>
             </div>
             <div class="how-item reveal">
                 <div class="how-num">03</div>
                 <div class="how-title">Submit Footage</div>
-                <div class="how-desc">Kirim footage via Google Drive beserta brief singkat. Bisa via form sederhana atau langsung chat editor-mu.</div>
+                <div class="how-desc">Kirim footage via Google drive beserta dengan brief singkat.</div>
             </div>
             <div class="how-item reveal">
                 <div class="how-num">04</div>
@@ -185,7 +243,6 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
     <section class="testi-section" id="testimoni">
         <div class="section-tag reveal">Testimoni</div>
         <h2 class="section-title reveal">Kata mereka yang sudah pakai LUNOCT</h2>
@@ -259,10 +316,6 @@
         </div>
     </section>
 
-    <!-- PRICING -->
-    
-
-    <!-- FAQ -->
     <section class="faq-section">
         <div class="section-tag reveal">FAQ</div>
         <h2 class="section-title reveal">Pertanyaan yang sering ditanyakan</h2>
@@ -284,13 +337,12 @@
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-q">Apakah ada garansi uang kembali?</div>
-                    <div class="faq-a">Ya! Paket Growth dan Pro dilengkapi garansi uang kembali di 7 hari pertama jika kamu tidak puas dengan hasil kerja editor kami.</div>
+                    <div class="faq-a">Ya! Paket Growth dan Pro dilengkapi garansi uang kembali di 7 hari pertama jika kamu tidak puas dengan hasil kerja kami. </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA SECTION -->
     <section class="cta-section" id="kontak">
         <div class="cta-bg"></div>
         <div style="position:relative; z-index:1;">
@@ -304,19 +356,18 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
-        <a href="#" class="footer-logo">Konten<span>Ku</span></a>
+        <a href="#" class="footer-logo">Luno<span>ct</span></a>
         <div class="footer-links">
-            <a href="#layanan">Layanan</a>
+            <a href="#portofolio">Portofolio</a>
+            <a href="#harga">Paket</a>
             <a href="#cara-kerja">Cara Kerja</a>
-            <a href="#harga">Harga</a>
             <a href="#kontak">Kontak</a>
         </div>
         <div class="footer-copy">© 2025 LUNOCT. Jakarta, Indonesia.</div>
     </footer>
 
-    <!-- Hubungkan ke JS Eksternal -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

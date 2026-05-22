@@ -7,7 +7,7 @@ document.addEventListener('mousemove', e => {
 });
 
 // Enlarge cursor when hovering over links or buttons
-document.querySelectorAll('a, button').forEach(el => {
+document.querySelectorAll('a, button, .swiper-button-next-custom, .swiper-button-prev-custom').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('big'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
 });
@@ -55,3 +55,31 @@ const countObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 stats.forEach(el => countObserver.observe(el));
+
+// INITIALIZE SWIPER CAROUSEL (Untuk Portofolio)
+const swiper = new Swiper('.portfolioSwiper', {
+  slidesPerView: 1,         
+  spaceBetween: 20,        
+  grabCursor: true,        
+  loop: false,             
+  observer: true,          // Reset otomatis jika ukuran layar berubah
+  observeParents: true,    // Menghitung ulang container setelah animasi Scroll Reveal selesai
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next-custom',
+    prevEl: '.swiper-button-prev-custom',
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,    // Ukuran Tablet: muncul 2 baris video
+      spaceBetween: 24,
+    },
+    1024: {
+      slidesPerView: 3,    // Ukuran Desktop: muncul 3 baris video
+      spaceBetween: 30,
+    }
+  }
+});
