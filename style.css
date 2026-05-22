@@ -210,6 +210,19 @@ nav {
   white-space: nowrap;
   display: flex; align-items: center; gap: 60px;
 }
+.marquee-logo {
+  height: 46px;        /* Mengunci tinggi gambar agar pas dengan ruang padding marquee */
+  width: auto;         /* Lebar otomatis menyesuaikan proporsi logo */
+  opacity: 0.5;        /* Memberikan efek redup warna --muted asli agar terlihat elegan */
+  filter: grayscale(100%); /* Memaksa logo menjadi hitam-putih agar menyatu dengan tema LUNOCT */
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+/* Efek interaktif saat cursor mouse mendekati logo */
+.marquee-logo:hover {
+  opacity: 0.9;
+  filter: grayscale(0%); /* Logo kembali berwarna asli saat di-hover */
+}
 .marquee-item::after { content: '✦'; color: var(--green-dim); font-size: 10px; }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
@@ -258,7 +271,7 @@ h2.section-title {
   max-width: 640px;
 }
 
-/* PORTFOLIO SECTION (5 VISIBLE TILES LOOK) */
+/* PORTFOLIO SECTION (5-SLIDES HORIZONTAL VIEW) */
 .portfolio-section {
   background: var(--black);
   border-bottom: 0.5px solid var(--gray-border);
@@ -290,12 +303,15 @@ h2.section-title {
   color: var(--accent);
   transform: scale(1.05);
 }
-/* Dipindah ke paling pojok luar (2%) agar tidak menghalangi view 5 video */
+
+/* Atur posisi tombol navigasi agar presisi di tepi luar monitor */
 .swiper-button-next-custom.main-nav { position: absolute; right: 2%; top: 50%; transform: translateY(-50%); }
 .swiper-button-prev-custom.main-nav { position: absolute; left: 2%; top: 50%; transform: translateY(-50%); }
 .swiper-navigation-buttons.only-mobile { display: none; gap: 12px; margin-top: 20px; justify-content: center; }
+
 .portfolioSwiper { overflow: visible !important; width: 100%; padding: 0 40px; }
 .portfolioSwiper .swiper-wrapper { padding-bottom: 120px; }
+
 .portfolio-card {
   background: var(--gray);
   border: 0.5px solid var(--gray-border);
@@ -308,7 +324,7 @@ h2.section-title {
 .video-container {
   position: relative;
   width: 100%;
-  padding-top: 177.78%;
+  padding-top: 177.78%; /* Rasio Short Vertikal 9:16 */
   background: #000;
 }
 .video-container iframe {
@@ -318,7 +334,7 @@ h2.section-title {
   border: 0;
 }
 
-/* Efek menggelap transparan untuk slide samping default */
+/* Layer penutup untuk efek menggelap & grayscale slide samping */
 .portfolio-card::after {
   content: '';
   position: absolute;
@@ -331,7 +347,7 @@ h2.section-title {
   transition: background 0.6s, backdrop-filter 0.6s;
 }
 
-/* Modifikasi skala agar 5 video berdampingan muat rapi (tidak kegedean) */
+/* Animasi khusus untuk slide yang berada tepat di tengah (Aktif) */
 .portfolioSwiper .swiper-slide-active .portfolio-card {
   transform: scale(1.08); 
   box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 30px rgba(200,245,106,0.15);
@@ -343,7 +359,7 @@ h2.section-title {
   pointer-events: none;
 }
 
-/* PRICING */
+/* SERVICES / SUBSCRIPTION PACKAGES */
 .pricing-section { background: var(--gray); border-bottom: 0.5px solid var(--gray-border); }
 .pricing-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -421,7 +437,7 @@ h2.section-title {
 }
 .pricing-card.featured .pricing-btn:hover { background: #b8e855; }
 
-/* HOW IT WORKS */
+/* HOW IT WORKS (ORIGINAL STRUCTURE) */
 .how-section {
   background: var(--gray);
   border-bottom: 0.5px solid var(--gray-border);
@@ -455,7 +471,7 @@ h2.section-title {
 }
 .how-desc { font-size: 14px; color: var(--muted-light); line-height: 1.65; }
 
-/* TESTIMONIALS */
+/* TESTIMONIALS (ORIGINAL STRUCTURE) */
 .testi-section { border-bottom: 0.5px solid var(--gray-border); }
 .testi-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -574,8 +590,9 @@ footer {
   .stats-section { grid-template-columns: 1fr; }
   .stat-item { border-right: none; border-bottom: 0.5px solid var(--gray-border); padding: 40px 20px; }
   .services-grid, .how-grid, .testi-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr; }
+  .services-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   
-  /* Portfolio Mobile Look */
+  /* Portfolio Mobile Layout Control */
   .portfolio-section { padding: 60px 0; }
   .section-header-wrap { padding: 0 20px; margin-bottom: 20px; }
   .portfolioSwiper .swiper-wrapper { padding-bottom: 60px; }

@@ -12,7 +12,7 @@ document.querySelectorAll('a, button, .swiper-button-next-custom, .swiper-button
   el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
 });
 
-// Scroll reveal effect using Intersection Observer
+// Scroll reveal effect using Intersection Observer (ORIGINAL FORM)
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -56,14 +56,14 @@ const countObserver = new IntersectionObserver(entries => {
 
 stats.forEach(el => countObserver.observe(el));
 
-// INITIALIZE SWIPER CAROUSEL (UPDATED FOR 5 IN A ROW DISPLAY)
+// INITIALIZE SWIPER CAROUSEL (5 SLIDES SEJAJAR MENYAMPING)
 const swiper = new Swiper('.portfolioSwiper', {
-  slidesPerView: 1.2,       // Default Mobile: Muncul 1 full dan sisa potongan samping
-  centeredSlides: true,     // Kunci: Slide aktif selalu berada tepat di tengah
+  slidesPerView: 1.2,       // Mobile look default
+  centeredSlides: true,     // Mengunci slide utama tepat di posisi tengah
   spaceBetween: 16,        
   grabCursor: true,        
-  loop: true,               // Diaktifkan agar looping kanan-kirinya infinity tak terbatas
-  initialSlide: 2,          // Mulai langsung dari video tengah
+  loop: true,               // Infinite looping aman karena stok slide di HTML sudah banyak (8 slides)
+  initialSlide: 2,          
   observer: true,
   observeParents: true,
   navigation: {
@@ -71,15 +71,15 @@ const swiper = new Swiper('.portfolioSwiper', {
     prevEl: '.swiper-button-prev-custom.main-nav',
   },
   breakpoints: {
-    // Ukuran Tablet
+    // Ukuran Monitor Tablet
     640: {
-      slidesPerView: 3,     // Tablet: Muncul 3 video menyamping
+      slidesPerView: 3,     
       spaceBetween: 20,
     },
-    // Ukuran Desktop
+    // Ukuran Monitor Desktop (Lebar)
     1024: {
-      slidesPerView: 5,     // ✦ Desktop: Muat 5 video sejajar menyamping sekaligus ✦
-      spaceBetween: 24,     // Jarak disesuaikan agar proporsi 9:16 tetap rapi & tipis
+      slidesPerView: 5,     // Menampilkan 5 Baris video Short sejajar rapi menyamping
+      spaceBetween: 24,     
     }
   }
 });
