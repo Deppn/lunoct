@@ -605,4 +605,16 @@ footer {
   footer { flex-direction: column; gap: 24px; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
   .cta-actions { flex-direction: column; }
+  
+  /* Fix pricing section overflow on mobile */
+  .pricing-section > div[style*="flex"] {
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    padding: 20px 16px !important;
+    gap: 12px !important;
+  }
+  .pricing-section > div[style*="flex"] > a {
+    width: 100%;
+  }
 }
