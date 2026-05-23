@@ -617,4 +617,21 @@ footer {
   .pricing-section > div[style*="flex"] > a {
     width: 100%;
   }
+  
+  /* Desktop and Mobile text variants */
+  .desktop-text {
+    display: inline !important;
+  }
+  .mobile-text {
+    display: none !important;
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-text {
+      display: none !important;
+    }
+    .mobile-text {
+      display: inline !important;
+    }
+  }
 }
